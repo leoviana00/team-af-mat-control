@@ -9,6 +9,8 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "America/Sao_Paulo"
+    cooldown:
+      default-days: 7
     labels:
       - "dependencies"
       - "github-actions"
@@ -25,6 +27,8 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "America/Sao_Paulo"
+    cooldown:
+      default-days: 7
     labels:
       - "dependencies"
       - "npm"

@@ -1,0 +1,90 @@
+name: Relatar um bug
+description: Reporte um comportamento inesperado ou defeito na aplicação.
+title: "bug: "
+labels: []
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por relatar um problema!
+        Preencha as informações abaixo para facilitar a análise e reprodução do defeito.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Descrição do problema
+      description: Explique o que aconteceu.
+      placeholder: Descreva o comportamento inesperado.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Passos para reproduzir
+      description: Informe uma sequência de passos para reproduzir o problema.
+      placeholder: |
+        1. Acesse...
+        2. Clique em...
+        3. Observe...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento esperado
+      description: O que deveria acontecer?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamento atual
+      description: O que acontece atualmente?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Ambiente
+      description: Em qual ambiente o problema foi identificado?
+      options:
+        - Desenvolvimento
+        - Homologação
+        - Produção
+        - Local
+        - Outro
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Navegador e versão
+      placeholder: "Ex.: Chrome 157"
+    validations:
+      required: false
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidências adicionais
+      description: Inclua mensagens de erro, logs ou imagens que ajudem na análise.
+      placeholder: Cole aqui informações relevantes.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Verificações
+      options:
+        - label: Verifiquei se já existe uma Issue relacionada.
+          required: true
+        - label: Não incluí senhas, tokens ou outras informações sensíveis.
+          required: true

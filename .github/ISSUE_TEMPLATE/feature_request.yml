@@ -1,0 +1,57 @@
+name: Solicitar funcionalidade ou melhoria
+description: Sugira uma nova funcionalidade ou melhoria para o TEAM AF Mat Control.
+title: "feat: "
+labels: []
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por contribuir com o TEAM AF Mat Control!
+        Descreva sua proposta para que ela possa ser avaliada.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema ou necessidade
+      description: Qual problema ou necessidade motiva esta solicitação?
+      placeholder: Descreva o cenário atual e a dificuldade encontrada.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Solução proposta
+      description: Como você imagina que essa necessidade poderia ser atendida?
+      placeholder: Descreva a funcionalidade ou melhoria sugerida.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_benefits
+    attributes:
+      label: Benefícios esperados
+      description: Quais resultados ou melhorias essa proposta traria?
+      placeholder: "Ex.: facilitar a condução das aulas, melhorar a experiência no tatame."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto e exemplos adicionais
+      description: Inclua exemplos de uso, referências ou imagens que ajudem a compreender a proposta.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Verificações
+      options:
+        - label: Verifiquei se já existe uma Issue relacionada.
+          required: true
+        - label: Entendo que a proposta será avaliada antes de qualquer implementação.
+          required: true

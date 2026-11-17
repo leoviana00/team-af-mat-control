@@ -1,0 +1,58 @@
+name: Security - CodeQL Analysis
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: codeql-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: CodeQL Analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          persist-credentials: false
+
+      - name: Detect JavaScript and TypeScript source files
+        id: source
+        shell: bash
+        run: |
+          if git ls-files -- '*.js' '*.jsx' '*.ts' '*.tsx' '*.mjs' '*.cjs' '*.mts' '*.cts' | grep -q .; then
+            echo "has_source=true" >> "$GITHUB_OUTPUT"
+            echo "JavaScript/TypeScript source files detected."
+          else
+            echo "has_source=false" >> "$GITHUB_OUTPUT"
+            echo "No JavaScript/TypeScript source files found. CodeQL analysis will be skipped."
+          fi
+
+      - name: Initialize CodeQL
+        if: steps.source.outputs.has_source == 'true'
+        uses: github/codeql-action/init@33d7b85da1a04171e211befe2c739303b9a4c066 # v4.39.3
+        with:
+          languages: javascript-typescript
+          build-mode: none
+
+      - name: Perform CodeQL Analysis
+        if: steps.source.outputs.has_source == 'true'
+        uses: github/codeql-action/analyze@33d7b85da1a04171e211befe2c739303b9a4c066 # v4.39.3
+        with:
+          category: "/language:javascript-typescript"

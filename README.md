@@ -1,137 +1,184 @@
+
 # TEAM AF Mat Control
 
-**Plataforma de controle e organização das atividades diárias do tatame.**
+Plataforma web para controle e organizaÃ§Ã£o das atividades diÃ¡rias no tatame de Jiu-Jitsu.
 
-O TEAM AF Mat Control é uma aplicação web projetada para apoiar a rotina de academias e equipes de Jiu-Jitsu, oferecendo ferramentas simples e integradas para controlar treinos, lutas e aulas.
+O TEAM AF Mat Control reÃºne ferramentas para auxiliar instrutores e operadores no gerenciamento de treinos, rounds, pontuaÃ§Ã£o de lutas e organizaÃ§Ã£o das aulas.
 
-O projeto tem como objetivo disponibilizar uma interface prática, acessível por computadores, tablets, celulares e televisores, priorizando a utilização durante as atividades no tatame.
+## Objetivo
 
-## Objetivos do projeto
+Disponibilizar uma interface centralizada para operaÃ§Ã£o dos treinos, com suporte a diferentes dispositivos e possibilidade de utilizaÃ§Ã£o em telas de exibiÃ§Ã£o.
 
-- Centralizar ferramentas de controle das atividades do tatame.
-- Facilitar a condução de treinos e aulas.
-- Disponibilizar um placar digital para simulação e acompanhamento de lutas.
-- Permitir o compartilhamento de sessões entre diferentes dispositivos.
-- Oferecer uma interface clara e adequada para exibição em televisores.
-- Manter uma solução simples, acessível e de baixo custo operacional.
+## MÃ³dulos da plataforma
 
-## Funcionalidades
+| MÃ³dulo | DescriÃ§Ã£o | Status |
+|---|---|---|
+| Training Timer | CronÃ´metros para treinos, rounds e intervalos. | Planejado |
+| Match Scoreboard | Placar de lutas com pontos, vantagens e puniÃ§Ãµes. | Planejado |
+| Interval Training | Controle de ciclos de atividade e descanso. | Planejado |
+| Class Management | OrganizaÃ§Ã£o das etapas e atividades da aula. | Planejado |
 
-O escopo inicial contempla quatro funcionalidades principais:
+A interface inicial e a navegaÃ§Ã£o entre os mÃ³dulos jÃ¡ estÃ£o implementadas. As funcionalidades operacionais serÃ£o desenvolvidas incrementalmente.
 
-### 1. Cronômetro de Treino (Training Timer)
+## Tecnologias
 
-Ferramenta para controlar o tempo das atividades de treinamento.
+- React
+- TypeScript
+- Vite
+- ESLint
+- CSS
+- GitHub Actions
+- GitHub Pages (publicaÃ§Ã£o planejada/configurada)
 
-Funcionalidades previstas:
+## Requisitos
 
-- Contagem crescente e regressiva.
-- Configuração de rounds e intervalos.
-- Alertas sonoros.
-- Presets de treinamento.
+- Node.js 24 ou superior
+- npm
 
-### 2. Placar de Luta (Match Scoreboard)
+## Executar localmente
 
-Placar digital para acompanhamento de lutas de Jiu-Jitsu.
+Clone o repositÃ³rio:
 
-Funcionalidades previstas:
+```bash
+git clone git@github.com:leoviana00/team-af-mat-control.git
+cd team-af-mat-control
+```
 
-- Identificação dos atletas nas posições vermelha e azul.
-- Registro de pontos, vantagens e punições.
-- Cronômetro integrado.
-- Histórico de ações.
-- Possibilidade de desfazer a última ação.
+Instale as dependÃªncias:
 
-### 3. Treino Intervalado (Interval Training)
+```bash
+npm ci
+```
 
-Ferramenta para organização de exercícios intervalados.
+Inicie o ambiente de desenvolvimento:
 
-Funcionalidades previstas:
+```bash
+npm run dev
+```
 
-- Configuração do tempo de atividade.
-- Configuração do tempo de descanso.
-- Definição da quantidade de ciclos.
-- Alertas sonoros.
-- Repetição automática dos ciclos.
+A aplicaÃ§Ã£o estarÃ¡ disponÃ­vel no endereÃ§o informado pelo Vite, normalmente:
 
-### 4. Controle de Aula (Class Management)
+```text
+http://localhost:5173/
+```
 
-Ferramenta para organizar e conduzir a sequência de atividades de uma aula.
+## Scripts disponÃ­veis
 
-Funcionalidades previstas:
-
-- Organização das etapas da aula.
-- Definição de duração por atividade.
-- Visualização da etapa atual e da próxima atividade.
-- Controle de avanço entre etapas.
-- Integração com o mecanismo de cronômetro.
-
-Exemplos de atividades: aquecimento, mobilidade, técnica, drills e rola.
-
-## Recursos transversais
-
-Além dos quatro modos principais, o projeto prevê:
-
-- Salas compartilhadas por código de acesso.
-- Sincronização em tempo real entre dispositivos.
-- Modo de exibição dedicado para televisores.
-- Perfis de administrador, operador, visualizador e display.
-- Transferência do controle de uma sessão entre operadores.
-- Personalização da identidade visual da academia.
-- Histórico básico de sessões.
-- Reconexão e sincronização após perda de conexão.
-
-## Arquitetura planejada
-
-A proposta inicial prioriza uma arquitetura simples, com hospedagem estática e serviços gerenciados, evitando a necessidade de manter infraestrutura própria.
-
-| Componente | Tecnologia planejada |
+| Comando | Finalidade |
 |---|---|
-| Frontend | React |
-| Linguagem | TypeScript |
-| Hospedagem | GitHub Pages |
-| Sincronização em tempo real | Firebase Realtime Database |
-| Persistência local | LocalStorage / IndexedDB |
-| Controle de versão | Git e GitHub |
-| Automação | GitHub Actions |
+| `npm run dev` | Inicia o ambiente de desenvolvimento. |
+| `npm run lint` | Executa a anÃ¡lise estÃ¡tica com ESLint. |
+| `npm run typecheck` | Valida os tipos TypeScript. |
+| `npm run build` | Gera o build de produÃ§Ã£o. |
+| `npm run preview` | Executa uma prÃ©via local do build. |
 
-A arquitetura poderá evoluir conforme as necessidades do produto, sem introduzir complexidade prematuramente.
+Para gerar a versÃ£o de produÃ§Ã£o:
 
-## Identidade visual
+```bash
+npm run build
+```
 
-A identidade visual será baseada na marca TEAM AF, preservando sua logo original e utilizando uma interface predominantemente escura.
+Os arquivos serÃ£o gerados no diretÃ³rio `dist/`.
 
-Diretrizes iniciais:
+## Estrutura do projeto
 
-- Preto e grafite como cores predominantes.
-- Vermelho como cor principal de identidade.
-- Azul para identificação do atleta azul no placar.
-- Tipografia esportiva, forte e legível.
-- Interface responsiva e adequada para telas de diferentes tamanhos.
+```text
+team-af-mat-control/
+â”œâ”€â”€ .github/
+â”‚   â””â”€â”€ workflows/
+â”‚       â”œâ”€â”€ ci.yml
+â”‚       â”œâ”€â”€ codeql.yml
+â”‚       â”œâ”€â”€ pages.yml
+â”‚       â””â”€â”€ security.yml
+â”œâ”€â”€ public/
+â”‚   â””â”€â”€ assets/
+â”œâ”€â”€ src/
+â”‚   â”œâ”€â”€ app/
+â”‚   â”‚   â”œâ”€â”€ layouts/
+â”‚   â”‚   â””â”€â”€ routes/
+â”‚   â”œâ”€â”€ components/
+â”‚   â”‚   â”œâ”€â”€ navigation/
+â”‚   â”‚   â””â”€â”€ ui/
+â”‚   â”œâ”€â”€ features/
+â”‚   â”‚   â”œâ”€â”€ training-timer/
+â”‚   â”‚   â”œâ”€â”€ match-scoreboard/
+â”‚   â”‚   â”œâ”€â”€ interval-training/
+â”‚   â”‚   â””â”€â”€ class-management/
+â”‚   â”œâ”€â”€ hooks/
+â”‚   â”œâ”€â”€ services/
+â”‚   â”œâ”€â”€ styles/
+â”‚   â”œâ”€â”€ types/
+â”‚   â””â”€â”€ main.tsx
+â”œâ”€â”€ index.html
+â”œâ”€â”€ package.json
+â”œâ”€â”€ package-lock.json
+â”œâ”€â”€ tsconfig.json
+â””â”€â”€ vite.config.ts
+```
 
-## Desenvolvimento e colaboração
+A organizaÃ§Ã£o segue uma abordagem orientada a funcionalidades (*feature-based*), mantendo cada mÃ³dulo isolado para facilitar sua evoluÃ§Ã£o.
 
-O desenvolvimento será organizado por funcionalidades (Features), utilizando Issues e Pull Requests para garantir rastreabilidade e controle das entregas.
+## CI/CD e publicaÃ§Ã£o
 
-Fluxo de desenvolvimento:
+O projeto utiliza GitHub Actions para automatizar as validaÃ§Ãµes e a publicaÃ§Ã£o.
 
-1. Criação da Issue com objetivo, escopo e critérios de aceite.
-2. Análise e aprovação da Feature.
-3. Criação de uma branch específica.
-4. Implementação e validação.
-5. Abertura de Pull Request relacionado à Issue.
-6. Revisão e integração na branch principal.
+### CI â€” Repository Validation
 
-As entregas deverão respeitar o escopo aprovado para cada Issue.
+Executa validaÃ§Ãµes em Pull Requests direcionados Ã  `main` e em atualizaÃ§Ãµes da branch principal:
 
-## Status do projeto
+- InstalaÃ§Ã£o das dependÃªncias com `npm ci`.
+- ESLint.
+- VerificaÃ§Ã£o de tipos TypeScript e build.
+- ValidaÃ§Ã£o de arquivos YAML.
+- ValidaÃ§Ã£o de Markdown.
+- ValidaÃ§Ã£o dos workflows com Actionlint.
+- VerificaÃ§Ã£o de whitespace.
 
-**Fase atual:** Repository Foundation.
+### Security
 
-O projeto está em fase inicial de estruturação do repositório, documentação e definição dos padrões de desenvolvimento.
+Os workflows de seguranÃ§a incluem verificaÃ§Ãµes automatizadas com Gitleaks, Zizmor e CodeQL.
 
-As funcionalidades descritas neste documento representam o escopo planejado e não necessariamente estão implementadas.
+### GitHub Pages
 
-## Licença
+O workflow `pages.yml` prepara o build e a publicaÃ§Ã£o automÃ¡tica apÃ³s atualizaÃ§Ãµes na `main`.
 
-Este projeto está licenciado sob os termos da licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais informações.
+EndereÃ§o planejado:
+
+[https://leoviana00.github.io/team-af-mat-control/](https://leoviana00.github.io/team-af-mat-control/)
+
+A publicaÃ§Ã£o depende da habilitaÃ§Ã£o do GitHub Pages nas configuraÃ§Ãµes do repositÃ³rio.
+
+## Arquitetura e evoluÃ§Ã£o
+
+A arquitetura estÃ¡ sendo desenvolvida incrementalmente.
+
+Diretrizes previstas para as prÃ³ximas etapas:
+
+- SincronizaÃ§Ã£o em tempo real entre dispositivos.
+- Salas compartilhadas de treino.
+- Perfis de acesso para administraÃ§Ã£o, operaÃ§Ã£o, visualizaÃ§Ã£o e display.
+- PersistÃªncia de configuraÃ§Ãµes e histÃ³rico.
+- IntegraÃ§Ã£o com Firebase, conforme evoluÃ§Ã£o do projeto.
+
+Esses recursos ainda nÃ£o fazem parte da implementaÃ§Ã£o inicial.
+
+## Desenvolvimento
+
+As contribuiÃ§Ãµes devem seguir o fluxo de trabalho do repositÃ³rio:
+
+1. Criar uma branch a partir da `main`.
+2. Implementar a alteraÃ§Ã£o dentro do escopo da issue correspondente.
+3. Executar as validaÃ§Ãµes locais.
+4. Abrir um Pull Request.
+5. Aguardar as verificaÃ§Ãµes automatizadas e revisÃ£o.
+6. Integrar Ã  `main` apÃ³s aprovaÃ§Ã£o.
+
+Consulte [CONTRIBUTING.md](CONTRIBUTING.md) para as diretrizes de contribuiÃ§Ã£o.
+
+## LicenÃ§a
+
+Consulte as informaÃ§Ãµes de licenÃ§a definidas no repositÃ³rio.
+
+---
+
+Desenvolvido por Leonardo Viana

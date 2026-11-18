@@ -1,4 +1,6 @@
-﻿import { useState } from 'react'
+﻿
+import { useState } from 'react'
+import { TrainingTimer } from '../features/training-timer/components/training-timer'
 
 const modules = [
   {
@@ -6,7 +8,7 @@ const modules = [
     number: '01',
     title: 'Training Timer',
     description: 'Cronômetros para treinos, rounds e intervalos.',
-    status: 'Em breve',
+    status: 'Disponível',
   },
   {
     id: 'scoreboard',
@@ -115,17 +117,23 @@ function App() {
               <span className="eyebrow">ÁREA DE TRABALHO</span>
               <h2>{selectedModule?.title}</h2>
             </div>
-            <span className="workspace-badge">PREPARAÇÃO</span>
+            <span className="workspace-badge">
+              {activeModule === 'timer' ? 'OPERACIONAL' : 'PREPARAÇÃO'}
+            </span>
           </div>
 
-          <div className="workspace-placeholder">
-            <div className="placeholder-icon">AF</div>
-            <h3>Seu próximo treino começa aqui.</h3>
-            <p>
-              Este módulo será implementado nas próximas etapas
-              do projeto.
-            </p>
-          </div>
+          {activeModule === 'timer' ? (
+            <TrainingTimer />
+          ) : (
+            <div className="workspace-placeholder">
+              <div className="placeholder-icon">AF</div>
+              <h3>Seu próximo treino começa aqui.</h3>
+              <p>
+                Este módulo será implementado nas próximas etapas
+                do projeto.
+              </p>
+            </div>
+          )}
         </section>
       </main>
 

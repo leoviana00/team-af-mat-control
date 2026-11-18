@@ -420,9 +420,19 @@ export function TrainingTimer() {
 
   useEffect(() => {
     function handleFullscreenChange() {
-      setIsTvMode(
-        document.fullscreenElement === timerContainerRef.current,
-      )
+      const isNativeFullscreen =
+        document.fullscreenElement === timerContainerRef.current
+
+      if (isNativeFullscreen) {
+        setIsTvMode(true)
+        return
+      }
+
+      // Se o usuário sair da tela cheia nativa (por exemplo, com ESC),
+      // também encerra o modo TV visual.
+      if (!document.fullscreenElement) {
+        setIsTvMode(false)
+      }
     }
 
     document.addEventListener('fullscreenchange', handleFullscreenChange)
@@ -442,14 +452,43 @@ export function TrainingTimer() {
       return
     }
 
-    try {
-      if (document.fullscreenElement === container) {
-        await document.exitFullscreen()
-      } else {
-        await container.requestFullscreen()
+    if (isTvMode) {
+      // Desativa primeiro a apresentação visual, sem depender do navegador.
+      setIsTvMode(false)
+
+      if (
+        document.fullscreenElement === container &&
+        typeof document.exitFullscreen === 'function'
+      ) {
+        try {
+          await document.exitFullscreen()
+        } catch (error) {
+          console.warn(
+            'Não foi possível sair da tela cheia nativa:',
+            error,
+          )
+        }
       }
+
+      return
+    }
+
+    // O modo TV visual funciona mesmo quando a Fullscreen API
+    // não existe ou não é permitida pelo navegador móvel.
+    setIsTvMode(true)
+
+    if (typeof container.requestFullscreen !== 'function') {
+      return
+    }
+
+    try {
+      await container.requestFullscreen()
     } catch (error) {
-      console.error('Não foi possível alternar o modo TV:', error)
+      // Mantém o modo TV visual quando a tela cheia nativa falha.
+      console.warn(
+        'Tela cheia nativa indisponível. Mantendo modo TV visual:',
+        error,
+      )
     }
   }
 

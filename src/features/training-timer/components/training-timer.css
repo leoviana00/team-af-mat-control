@@ -1,0 +1,2242 @@
+
+
+/* =========================================
+
+   TRAINING TIMER - LAYOUT PRINCIPAL
+
+========================================= */
+
+
+
+.training-timer {
+
+  display: grid;
+
+  grid-template-columns: minmax(220px, 30%) minmax(0, 70%);
+
+  grid-template-areas:
+
+    "tv-toggle tv-toggle"
+    "presets presets"
+
+    "mode mode"
+
+    "submode submode"
+
+    "configuration display"
+
+    "configuration status"
+
+    "configuration controls"
+
+    "configuration completion"
+
+    "audio audio";
+
+  align-items: center;
+
+  justify-items: center;
+
+  gap: 24px 36px;
+
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 36px 32px;
+
+}
+
+
+
+/* =========================================
+
+   SELETORES DE MODO
+
+========================================= */
+
+
+
+.timer-mode-selector {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  padding: 5px;
+
+  background: #171717;
+
+  border: 1px solid #303030;
+
+  border-radius: 10px;
+
+}
+
+
+
+/* O botão MODO TV ocupa o primeiro elemento. */
+
+.training-timer > .tv-mode-toggle {
+
+  grid-area: tv-toggle;
+
+}
+
+
+
+/* Primeiro seletor: Cronômetro Livre / Round Timer. */
+
+.training-timer > .timer-mode-selector:nth-child(2) {
+
+  grid-area: mode;
+
+}
+
+
+
+/* Segundo seletor: Progressivo / Regressivo. */
+
+.training-timer > .timer-mode-selector:nth-child(3) {
+
+  grid-area: submode;
+
+}
+
+
+
+.timer-mode-selector button {
+
+  padding: 12px 20px;
+
+  color: #999;
+
+  background: transparent;
+
+  border: 0;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+}
+
+
+
+.timer-mode-selector button.selected {
+
+  color: #fff;
+
+  background: #c92332;
+
+}
+
+
+
+.timer-mode-selector button:disabled {
+
+  cursor: not-allowed;
+
+  opacity: 0.65;
+
+}
+
+
+
+/* =========================================
+
+   CONFIGURAÇÃO DO CRONÔMETRO LIVRE
+
+========================================= */
+
+
+
+.timer-configuration {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  width: 100%;
+
+}
+
+
+
+.training-timer > .timer-configuration {
+
+  grid-area: configuration;
+
+  align-self: center;
+
+  max-width: 340px;
+
+  padding: 24px 16px;
+
+  background: #171717;
+
+  border: 1px solid #303030;
+
+  border-radius: 12px;
+
+}
+
+
+
+.timer-configuration label {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  color: #999;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+}
+
+
+
+.timer-configuration input {
+
+  width: 90px;
+
+  padding: 12px;
+
+  color: #fff;
+
+  background: #171717;
+
+  border: 1px solid #383838;
+
+  border-radius: 8px;
+
+  font-size: 20px;
+
+  text-align: center;
+
+}
+
+
+
+.timer-configuration input:disabled {
+
+  opacity: 0.6;
+
+}
+
+
+
+/* =========================================
+
+   DISPLAY E CONTROLES
+
+========================================= */
+
+
+
+.timer-display {
+
+  grid-area: display;
+
+  justify-self: stretch;
+
+  width: 100%;
+
+  color: #fff;
+
+  font-size: clamp(90px, 11vw, 180px);
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -6px;
+
+  font-variant-numeric: tabular-nums;
+
+  text-align: center;
+
+  white-space: nowrap;
+
+}
+
+
+
+.timer-display.completed {
+
+  color: #c92332;
+
+}
+
+
+
+.timer-status {
+
+  grid-area: status;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  color: #999;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-align: center;
+
+}
+
+
+
+.timer-status .status-dot {
+
+  flex-shrink: 0;
+
+  width: 8px;
+
+  height: 8px;
+
+  background: #666;
+
+  border-radius: 50%;
+
+}
+
+
+
+.timer-status.running .status-dot {
+
+  background: #c92332;
+
+  box-shadow: 0 0 10px #c92332;
+
+}
+
+
+
+.timer-status.paused .status-dot {
+
+  background: #e5a52b;
+
+}
+
+
+
+.timer-status.completed .status-dot {
+
+  background: #c92332;
+
+}
+
+
+
+.timer-controls {
+
+  grid-area: controls;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  max-width: 560px;
+
+}
+
+
+
+.timer-button {
+
+  flex: 1;
+
+  min-width: 0;
+
+  min-height: 52px;
+
+  border: 1px solid transparent;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+}
+
+
+
+.timer-button.primary {
+
+  color: #fff;
+
+  background: #c92332;
+
+}
+
+
+
+.timer-button.secondary {
+
+  color: #ddd;
+
+  background: #222;
+
+  border-color: #383838;
+
+}
+
+
+
+.timer-button:disabled {
+
+  cursor: not-allowed;
+
+  opacity: 0.4;
+
+}
+
+
+
+.timer-completion {
+
+  grid-area: completion;
+
+  margin: 0;
+
+  color: #c92332;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-align: center;
+
+}
+
+
+
+/* Cronômetro progressivo sem configuração */
+
+
+
+.training-timer:not(:has(> .timer-configuration)):not(:has(> .round-configuration))
+
+  > .timer-display {
+
+  grid-column: 1 / -1;
+
+}
+
+
+
+.training-timer:not(:has(> .timer-configuration)):not(:has(> .round-configuration))
+
+  > .timer-status,
+
+.training-timer:not(:has(> .timer-configuration)):not(:has(> .round-configuration))
+
+  > .timer-controls,
+
+.training-timer:not(:has(> .timer-configuration)):not(:has(> .round-configuration))
+
+  > .timer-completion {
+
+  grid-column: 1 / -1;
+
+}
+
+
+
+/* =========================================
+
+   ROUND TIMER
+
+========================================= */
+
+
+
+.training-timer:has(> .round-configuration) {
+
+  grid-template-areas:
+
+    "tv-toggle tv-toggle"
+    "presets presets"
+
+    "mode mode"
+
+    "configuration display"
+
+    "configuration phase"
+
+    "configuration progress"
+
+    "configuration status"
+
+    "configuration controls"
+
+    "configuration completion"
+
+    "audio audio";
+
+}
+
+
+
+.round-configuration {
+
+  grid-area: configuration;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 24px;
+
+  width: 100%;
+
+  max-width: 340px;
+
+  padding: 24px 18px;
+
+  background: #171717;
+
+  border: 1px solid #303030;
+
+  border-radius: 12px;
+
+}
+
+
+
+.round-config-group {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+}
+
+
+
+.round-config-group h3 {
+
+  margin: 0;
+
+  color: #999;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  text-align: center;
+
+}
+
+
+
+.round-count-input {
+
+  width: 110px;
+
+  padding: 12px;
+
+  color: #fff;
+
+  background: #171717;
+
+  border: 1px solid #383838;
+
+  border-radius: 8px;
+
+  font-size: 24px;
+
+  font-weight: 700;
+
+  text-align: center;
+
+}
+
+
+
+.round-final-rest {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  color: #bbb;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  text-align: center;
+
+}
+
+
+
+.round-final-rest input {
+
+  flex-shrink: 0;
+
+  width: 17px;
+
+  height: 17px;
+
+  accent-color: #c92332;
+
+}
+
+
+
+/* Os elementos internos do Round Timer
+
+   passam a participar do Grid principal. */
+
+
+
+.round-timer {
+
+  display: contents;
+
+}
+
+
+
+.round-timer .timer-display {
+
+  grid-area: display;
+
+  font-size: clamp(90px, 11vw, 180px);
+
+}
+
+
+
+.round-progress {
+
+  grid-area: progress;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 5px;
+
+  color: #999;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+}
+
+
+
+.round-progress strong {
+
+  color: #fff;
+
+  font-size: 32px;
+
+  font-variant-numeric: tabular-nums;
+
+}
+
+
+
+.round-progress small {
+
+  color: #777;
+
+  font-size: 18px;
+
+}
+
+
+
+.round-phase {
+
+  grid-area: phase;
+
+  color: #999;
+
+  font-size: 14px;
+
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  text-align: center;
+
+}
+
+
+
+.round-phase.round {
+
+  color: #c92332;
+
+}
+
+
+
+.round-phase.rest {
+
+  color: #e5a52b;
+
+}
+
+
+
+.round-validation {
+
+  grid-area: completion;
+
+  margin: 0;
+
+  color: #e5a52b;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-align: center;
+
+}
+
+
+
+/* =========================================
+
+   DESKTOP
+
+========================================= */
+
+
+
+@media (min-width: 1100px) {
+
+  .training-timer {
+
+    column-gap: 48px;
+
+  }
+
+
+
+  .round-configuration {
+
+    justify-self: stretch;
+
+  }
+
+}
+
+
+
+/* =========================================
+
+   TABLET
+
+========================================= */
+
+
+
+@media (max-width: 899px) {
+
+  .training-timer,
+
+  .training-timer:has(> .round-configuration) {
+
+    grid-template-columns: minmax(0, 1fr);
+
+    grid-template-areas:
+
+      "tv-toggle"
+      "presets"
+
+      "mode"
+
+      "submode"
+
+      "configuration"
+
+      "display"
+
+      "phase"
+
+      "progress"
+
+      "status"
+
+      "controls"
+
+      "completion"
+
+      "audio";
+
+    gap: 22px;
+
+    padding: 28px 20px;
+
+  }
+
+
+
+  .training-timer > .timer-configuration,
+
+  .round-configuration {
+
+    justify-self: center;
+
+    max-width: 520px;
+
+  }
+
+
+
+  .training-timer:not(:has(> .timer-configuration)):not(:has(> .round-configuration))
+
+    > .timer-display,
+
+  .training-timer:not(:has(> .timer-configuration)):not(:has(> .round-configuration))
+
+    > .timer-status,
+
+  .training-timer:not(:has(> .timer-configuration)):not(:has(> .round-configuration))
+
+    > .timer-controls {
+
+    grid-column: auto;
+
+  }
+
+
+
+  .timer-display,
+
+  .round-timer .timer-display {
+
+    font-size: clamp(76px, 16vw, 140px);
+
+  }
+
+}
+
+
+
+/* =========================================
+
+   MOBILE
+
+========================================= */
+
+
+
+@media (max-width: 520px) {
+
+  .training-timer {
+
+    gap: 20px;
+
+    padding: 24px 12px;
+
+  }
+
+
+
+  .timer-mode-selector {
+
+    width: 100%;
+
+    justify-content: center;
+
+  }
+
+
+
+  .timer-mode-selector button {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 11px 8px;
+
+    font-size: 10px;
+
+  }
+
+
+
+  .training-timer > .timer-configuration {
+
+    padding: 18px 12px;
+
+  }
+
+
+
+  .timer-configuration {
+
+    gap: 12px;
+
+  }
+
+
+
+  .timer-configuration input {
+
+    width: 78px;
+
+    padding: 10px;
+
+    font-size: 18px;
+
+  }
+
+
+
+  .timer-display,
+
+  .round-timer .timer-display {
+
+    font-size: clamp(64px, 17vw, 100px);
+
+    letter-spacing: -3px;
+
+  }
+
+
+
+  .timer-controls {
+
+    gap: 8px;
+
+  }
+
+
+
+  .timer-button {
+
+    min-height: 48px;
+
+    font-size: 10px;
+
+  }
+
+
+
+  .round-configuration {
+
+    gap: 20px;
+
+    padding: 18px 12px;
+
+  }
+
+
+
+  .round-final-rest {
+
+    align-items: flex-start;
+
+    line-height: 1.5;
+
+  }
+
+}
+
+
+
+/* =========================================
+
+   CONFIGURAÇÕES DE ÁUDIO
+
+========================================= */
+
+
+
+.timer-audio-settings {
+
+  grid-area: audio;
+
+  justify-self: center;
+
+  width: 100%;
+
+  max-width: 700px;
+
+  background: #171717;
+
+  border: 1px solid #303030;
+
+  border-radius: 10px;
+
+}
+
+
+
+.timer-audio-settings summary {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 16px 20px;
+
+  color: #ddd;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+
+  cursor: pointer;
+
+  list-style: none;
+
+}
+
+
+
+.timer-audio-settings summary::-webkit-details-marker {
+
+  display: none;
+
+}
+
+
+
+.timer-audio-settings summary::after {
+
+  content: '+';
+
+  color: #c92332;
+
+  font-size: 20px;
+
+}
+
+
+
+.timer-audio-settings[open] summary::after {
+
+  content: '−';
+
+}
+
+
+
+.audio-indicator {
+
+  margin-left: auto;
+
+  color: #999;
+
+  font-size: 10px;
+
+}
+
+
+
+.audio-indicator.active {
+
+  color: #6fbd82;
+
+}
+
+
+
+.audio-settings-content {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0;
+
+  padding: 0 20px 12px;
+
+}
+
+
+
+.audio-setting {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 16px;
+
+  min-height: 42px;
+
+  color: #bbb;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+}
+
+
+
+.audio-setting.master {
+
+  color: #fff;
+
+  font-weight: 800;
+
+}
+
+
+
+.audio-setting input {
+
+  flex-shrink: 0;
+
+  width: 18px;
+
+  height: 18px;
+
+  accent-color: #c92332;
+
+  cursor: pointer;
+
+}
+
+
+
+.audio-setting input:disabled {
+
+  cursor: not-allowed;
+
+  opacity: 0.4;
+
+}
+
+
+
+.audio-settings-divider {
+
+  height: 1px;
+
+  margin: 8px 0;
+
+  background: #303030;
+
+}
+
+
+
+@media (max-width: 520px) {
+
+  .timer-audio-settings summary {
+
+    padding: 14px 12px;
+
+    font-size: 10px;
+
+  }
+
+
+
+  .audio-settings-content {
+
+    padding: 0 12px 10px;
+
+  }
+
+
+
+  .audio-setting {
+
+    font-size: 11px;
+
+  }
+
+}
+
+
+
+/* =========================================
+
+   BOTÃO MODO TV
+
+========================================= */
+
+
+
+.tv-mode-toggle {
+
+  grid-area: tv-toggle;
+
+  justify-self: end;
+
+  min-height: 40px;
+
+  padding: 10px 18px;
+
+  color: #ddd;
+
+  background: #222;
+
+  border: 1px solid #383838;
+
+  border-radius: 8px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition:
+
+    background 150ms ease,
+
+    border-color 150ms ease,
+
+    color 150ms ease;
+
+}
+
+
+
+.tv-mode-toggle:hover {
+
+  color: #fff;
+
+  background: #c92332;
+
+  border-color: #c92332;
+
+}
+
+
+
+.tv-mode-toggle:focus-visible {
+
+  outline: 2px solid #fff;
+
+  outline-offset: 3px;
+
+}
+
+
+
+/* =========================================
+
+   MODO TV - TELA CHEIA
+
+========================================= */
+
+
+
+.training-timer.tv-mode {
+
+  --tv-background: #080808;
+
+
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr);
+
+  grid-template-areas:
+
+    "tv-toggle"
+
+    "display"
+
+    "phase"
+
+    "progress"
+
+    "status"
+
+    "controls"
+
+    "completion";
+
+  align-content: center;
+
+  justify-items: center;
+
+  gap: clamp(16px, 3vh, 32px);
+
+  width: 100%;
+
+  max-width: none;
+
+  height: 100vh;
+
+  height: 100dvh;
+
+  min-height: 0;
+
+  margin: 0;
+
+  padding: clamp(16px, 3vw, 48px);
+
+  overflow-x: hidden;
+
+  overflow-y: auto;
+
+  color: #fff;
+
+  background: var(--tv-background);
+
+}
+
+
+
+/* Oculta seletores, configurações e áudio. */
+
+
+
+.training-timer.tv-mode > .timer-mode-selector,
+
+.training-timer.tv-mode > .timer-configuration,
+
+.training-timer.tv-mode > .round-configuration,
+
+.training-timer.tv-mode > .timer-audio-settings,
+
+.training-timer.tv-mode > .round-validation {
+
+  display: none;
+
+}
+
+
+
+/* Botão de saída. */
+
+
+
+.training-timer.tv-mode > .tv-mode-toggle {
+
+  position: absolute;
+
+  top: clamp(12px, 2vh, 24px);
+
+  right: clamp(12px, 2vw, 28px);
+
+  z-index: 2;
+
+  min-height: 44px;
+
+  padding: 12px 18px;
+
+  color: #fff;
+
+  background: #222;
+
+  border-color: #444;
+
+  opacity: 0.85;
+
+}
+
+
+
+.training-timer.tv-mode > .tv-mode-toggle:hover {
+
+  background: #c92332;
+
+  border-color: #c92332;
+
+  opacity: 1;
+
+}
+
+
+
+/* Display principal. */
+
+
+
+.training-timer.tv-mode > .timer-display,
+
+.training-timer.tv-mode .round-timer .timer-display {
+
+  grid-area: display;
+
+  align-self: center;
+
+  justify-self: center;
+
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: 0;
+
+  font-size: clamp(5rem, min(28vw, 42vh), 22rem);
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+
+  text-align: center;
+
+}
+
+
+
+/* Fase do round ou descanso. */
+
+
+
+.training-timer.tv-mode .round-phase {
+
+  grid-area: phase;
+
+  align-self: center;
+
+  margin: 0;
+
+  font-size: clamp(1.2rem, 3vw, 2.8rem);
+
+  letter-spacing: 0.25em;
+
+}
+
+
+
+/* Progresso dos rounds. */
+
+
+
+.training-timer.tv-mode .round-progress {
+
+  grid-area: progress;
+
+  align-self: center;
+
+  gap: 8px;
+
+  font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+
+}
+
+
+
+.training-timer.tv-mode .round-progress strong {
+
+  font-size: clamp(2rem, 5vw, 4.5rem);
+
+}
+
+
+
+.training-timer.tv-mode .round-progress small {
+
+  font-size: 0.55em;
+
+}
+
+
+
+/* Status da sessão. */
+
+
+
+.training-timer.tv-mode > .timer-status,
+
+.training-timer.tv-mode .round-timer .timer-status {
+
+  grid-area: status;
+
+  align-self: center;
+
+  margin: 0;
+
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+
+  letter-spacing: 0.2em;
+
+}
+
+
+
+.training-timer.tv-mode .timer-status .status-dot {
+
+  width: 11px;
+
+  height: 11px;
+
+}
+
+
+
+/* Controles. */
+
+
+
+.training-timer.tv-mode > .timer-controls,
+
+.training-timer.tv-mode .round-timer .timer-controls {
+
+  grid-area: controls;
+
+  align-self: center;
+
+  justify-self: center;
+
+  width: min(100%, 700px);
+
+  max-width: 700px;
+
+  gap: clamp(12px, 2vw, 24px);
+
+  margin: 0;
+
+}
+
+
+
+.training-timer.tv-mode .timer-button {
+
+  min-height: clamp(56px, 8vh, 84px);
+
+  border-radius: 12px;
+
+  font-size: clamp(0.85rem, 1.5vw, 1.2rem);
+
+  letter-spacing: 0.12em;
+
+}
+
+
+
+/* Mensagem de conclusão. */
+
+
+
+.training-timer.tv-mode > .timer-completion,
+
+.training-timer.tv-mode .round-timer .timer-completion {
+
+  grid-area: completion;
+
+  align-self: center;
+
+  margin: 0;
+
+  font-size: clamp(0.9rem, 2vw, 1.5rem);
+
+}
+
+
+
+/* Ajustes para cronômetro progressivo sem configuração. */
+
+
+
+.training-timer.tv-mode:not(:has(> .round-configuration))
+
+  > .timer-display,
+
+.training-timer.tv-mode:not(:has(> .round-configuration))
+
+  > .timer-status,
+
+.training-timer.tv-mode:not(:has(> .round-configuration))
+
+  > .timer-controls,
+
+.training-timer.tv-mode:not(:has(> .round-configuration))
+
+  > .timer-completion {
+
+  grid-column: 1;
+
+}
+
+
+
+/* =========================================
+
+   MODO TV - TABLETS E TELAS MENORES
+
+========================================= */
+
+
+
+@media (max-width: 899px) {
+
+  .training-timer.tv-mode {
+
+    grid-template-columns: minmax(0, 1fr);
+
+    grid-template-areas:
+
+      "tv-toggle"
+
+      "display"
+
+      "phase"
+
+      "progress"
+
+      "status"
+
+      "controls"
+
+      "completion";
+
+    gap: clamp(14px, 3vh, 26px);
+
+    padding: 72px 20px 28px;
+
+  }
+
+
+
+  .training-timer.tv-mode > .timer-display,
+
+  .training-timer.tv-mode .round-timer .timer-display {
+
+    font-size: clamp(5rem, min(24vw, 36vh), 16rem);
+
+  }
+
+
+
+  .training-timer.tv-mode .timer-controls {
+
+    width: min(100%, 620px);
+
+  }
+
+}
+
+
+
+/* =========================================
+
+   MODO TV - MOBILE
+
+========================================= */
+
+
+
+@media (max-width: 520px) {
+
+  .training-timer.tv-mode {
+
+    gap: 20px;
+
+    padding: 72px 12px 20px;
+
+  }
+
+
+
+  .training-timer.tv-mode > .tv-mode-toggle {
+
+    top: 12px;
+
+    right: 12px;
+
+    min-height: 38px;
+
+    padding: 9px 12px;
+
+    font-size: 9px;
+
+  }
+
+
+
+  .training-timer.tv-mode > .timer-display,
+
+  .training-timer.tv-mode .round-timer .timer-display {
+
+    font-size: clamp(4.5rem, 21vw, 8rem);
+
+    letter-spacing: -0.04em;
+
+  }
+
+
+
+  .training-timer.tv-mode .round-phase {
+
+    font-size: 1rem;
+
+    letter-spacing: 0.2em;
+
+  }
+
+
+
+  .training-timer.tv-mode .round-progress strong {
+
+    font-size: 2rem;
+
+  }
+
+
+
+  .training-timer.tv-mode .timer-status {
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.12em;
+
+  }
+
+
+
+  .training-timer.tv-mode .timer-controls {
+
+    gap: 8px;
+
+  }
+
+
+
+  .training-timer.tv-mode .timer-button {
+
+    min-height: 52px;
+
+    padding: 10px 6px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.05em;
+
+  }
+
+}
+
+
+
+/* =========================================
+
+   MODO TV - TELAS BAIXAS / LANDSCAPE
+
+========================================= */
+
+
+
+@media (max-height: 520px) {
+
+  .training-timer.tv-mode {
+
+    align-content: center;
+
+    gap: 10px;
+
+    padding: 52px 20px 12px;
+
+  }
+
+
+
+  .training-timer.tv-mode > .timer-display,
+
+  .training-timer.tv-mode .round-timer .timer-display {
+
+    font-size: clamp(4rem, 24vh, 9rem);
+
+  }
+
+
+
+  .training-timer.tv-mode .round-progress {
+
+    flex-direction: row;
+
+    gap: 12px;
+
+  }
+
+
+
+  .training-timer.tv-mode .round-progress strong {
+
+    font-size: 1.8rem;
+
+  }
+
+
+
+  .training-timer.tv-mode .round-phase {
+
+    font-size: 1rem;
+
+  }
+
+
+
+  .training-timer.tv-mode .timer-button {
+
+    min-height: 42px;
+
+  }
+
+}
+
+
+
+
+
+/* =========================================
+
+   MODO TV - MOBILE: BOTÃO DE SAÍDA
+
+========================================= */
+
+
+
+@media (max-width: 520px) {
+
+  .training-timer.tv-mode {
+
+    gap: 20px;
+
+    padding: 72px 12px 20px;
+
+  }
+
+
+
+  .training-timer.tv-mode > .tv-mode-toggle {
+
+    position: static;
+
+    grid-area: tv-toggle;
+
+    justify-self: end;
+
+    align-self: start;
+
+
+
+    width: fit-content;
+
+    min-height: 40px;
+
+    margin-bottom: 8px;
+
+  }
+
+}
+
+
+
+
+
+/* =========================================
+
+   TRAINING TIMER - PRESETS
+
+========================================= */
+
+
+
+.timer-presets {
+
+  grid-area: presets;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+
+  width: 100%;
+
+  max-width: 700px;
+
+  padding: 20px;
+
+  background: #171717;
+
+  border: 1px solid #303030;
+
+  border-radius: 12px;
+
+}
+
+
+
+.timer-presets-header {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+}
+
+
+
+.timer-presets-header h3,
+
+.timer-preset-editor h4 {
+
+  margin: 0;
+
+  color: #ddd;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+
+}
+
+
+
+.timer-presets-header span {
+
+  color: #777;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+}
+
+
+
+.timer-presets-selector {
+
+  display: flex;
+
+  gap: 10px;
+
+  width: 100%;
+
+}
+
+
+
+.timer-presets-selector select,
+
+.timer-preset-editor input {
+
+  min-width: 0;
+
+  width: 100%;
+
+  padding: 12px;
+
+  color: #fff;
+
+  background: #202020;
+
+  border: 1px solid #383838;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+}
+
+
+
+.timer-presets-selector select {
+
+  flex: 1;
+
+}
+
+
+
+.preset-apply-button,
+
+.preset-save-button,
+
+.preset-delete-button {
+
+  min-height: 42px;
+
+  padding: 10px 16px;
+
+  color: #fff;
+
+  background: #c92332;
+
+  border: 1px solid #c92332;
+
+  border-radius: 8px;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+
+  cursor: pointer;
+
+}
+
+
+
+.preset-apply-button:disabled,
+
+.preset-save-button:disabled,
+
+.preset-delete-button:disabled {
+
+  cursor: not-allowed;
+
+  opacity: 0.4;
+
+}
+
+
+
+.timer-preset-description {
+
+  margin: 0;
+
+  color: #999;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+}
+
+
+
+.timer-preset-editor {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  padding-top: 14px;
+
+  border-top: 1px solid #303030;
+
+}
+
+
+
+.timer-preset-editor label {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  color: #999;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+}
+
+
+
+.timer-preset-editor input:disabled {
+
+  opacity: 0.5;
+
+}
+
+
+
+.timer-preset-actions {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+}
+
+
+
+.preset-save-button {
+
+  flex: 1;
+
+}
+
+
+
+.preset-delete-button {
+
+  background: #292929;
+
+  border-color: #555;
+
+}
+
+
+
+@media (max-width: 899px) {
+
+  .timer-presets {
+
+    justify-self: center;
+
+    max-width: 520px;
+
+  }
+
+}
+
+
+
+@media (max-width: 520px) {
+
+  .timer-presets {
+
+    padding: 16px 12px;
+
+  }
+
+
+
+  .timer-presets-selector {
+
+    flex-direction: column;
+
+  }
+
+
+
+  .timer-presets-selector select,
+
+  .preset-apply-button {
+
+    width: 100%;
+
+    min-height: 44px;
+
+  }
+
+
+
+  .timer-preset-actions {
+
+    flex-direction: column;
+
+  }
+
+
+
+  .timer-preset-actions button {
+
+    width: 100%;
+
+  }
+
+}
+
+
+
+/* O gerenciamento não aparece no modo TV. */
+
+
+
+.training-timer.tv-mode > .timer-presets {
+
+  display: none;
+
+}

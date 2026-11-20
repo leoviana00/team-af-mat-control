@@ -1,0 +1,1216 @@
+.interval-training {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 32px;
+  background: #101012;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+.interval-training-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.interval-eyebrow {
+  color: var(--color-primary);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+.interval-training-header h2 {
+  margin: 9px 0;
+  font-size: 24px;
+}
+.interval-training-header p,
+.interval-config-heading p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.interval-training-tag {
+  flex-shrink: 0;
+  padding: 8px 11px;
+  color: var(--color-muted);
+  background: #1b1b1f;
+  border: 1px solid #33333a;
+  border-radius: 6px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+.interval-training-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.5fr);
+  align-items: stretch;
+  gap: 22px;
+}
+.interval-config,
+.interval-execution {
+  min-width: 0;
+  padding: 24px;
+  background: #171719;
+  border: 1px solid #303036;
+  border-radius: 12px;
+}
+.interval-config {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.interval-config-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.interval-config-heading h3 {
+  margin: 0;
+  font-size: 17px;
+}
+.interval-config-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.interval-config-field > label {
+  color: #aaaab2;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.interval-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.interval-input-wrapper input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  color: #fff;
+  background: #202023;
+  border: 1px solid #3a3a42;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+.interval-input-wrapper input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.interval-input-wrapper span {
+  flex-shrink: 0;
+  color: #777780;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+}
+.interval-input-wrapper input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.interval-final-rest {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #bbb;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.interval-final-rest input {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+.interval-final-rest input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.interval-config-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: auto;
+  padding: 15px;
+  background: #202023;
+  border: 1px solid #34343a;
+  border-radius: 8px;
+}
+.interval-config-summary > span {
+  color: var(--color-muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.interval-config-summary strong {
+  color: #fff;
+  font-size: 15px;
+}
+.interval-config-summary p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.interval-execution {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+}
+.interval-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+}
+.interval-display-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  width: 100%;
+}
+.interval-display-top h3 {
+  margin: 7px 0 0;
+  font-size: 17px;
+}
+.interval-phase {
+  padding: 8px 11px;
+  color: #aaa;
+  background: #242428;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.interval-phase.activity,
+.interval-phase.preparing {
+  color: #fff;
+  background: #76202a;
+}
+.interval-phase.rest {
+  color: #f1bd57;
+  background: #493719;
+}
+.interval-timer {
+  width: 100%;
+  color: #fff;
+  font-size: clamp(76px, 10vw, 142px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -5px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  white-space: nowrap;
+}
+.interval-timer.resting {
+  color: #e5a52b;
+}
+.interval-timer.preparing {
+  color: var(--color-primary);
+}
+.interval-timer.completed {
+  color: #42c77a;
+}
+.interval-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #aaa;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+.interval-status .status-dot {
+  width: 8px;
+  height: 8px;
+  background: #666;
+  border-radius: 50%;
+}
+.interval-status.active .status-dot,
+.interval-status.preparing .status-dot {
+  background: var(--color-primary);
+  box-shadow: 0 0 10px var(--color-primary);
+}
+.interval-status.resting .status-dot {
+  background: #e5a52b;
+}
+.interval-status.paused .status-dot {
+  background: #e5a52b;
+}
+.interval-status.completed .status-dot {
+  background: #42c77a;
+}
+.interval-progress {
+  width: 100%;
+  max-width: 560px;
+}
+.interval-progress-heading,
+.interval-progress-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.interval-progress-heading {
+  margin-bottom: 10px;
+  color: #999;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.interval-progress-heading strong {
+  color: #fff;
+  font-size: 12px;
+}
+.interval-progress-track {
+  width: 100%;
+  height: 7px;
+  overflow: hidden;
+  background: #303036;
+  border-radius: 20px;
+}
+.interval-progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: inherit;
+  transition: width 150ms linear;
+}
+.interval-progress-details {
+  margin-top: 9px;
+  color: var(--color-muted);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.interval-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  width: 100%;
+  padding: 14px 16px;
+  background: #202023;
+  border: 1px solid #34343a;
+  border-radius: 8px;
+}
+.interval-next span {
+  color: var(--color-muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.interval-next strong {
+  color: #fff;
+  font-size: 12px;
+  text-align: right;
+}
+.interval-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.interval-button {
+  flex: 1;
+  min-width: 120px;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+.interval-button.primary {
+  color: #fff;
+  background: var(--color-primary);
+}
+.interval-button.primary:hover {
+  background: var(--color-primary-hover);
+}
+.interval-button.secondary {
+  color: #ddd;
+  background: #29292e;
+  border-color: #414149;
+}
+.interval-button.secondary:hover {
+  background: #38383f;
+}
+.interval-button.danger {
+  color: #f2b4b9;
+  background: #351a1d;
+  border-color: #663038;
+}
+.interval-button.danger:hover {
+  background: #512127;
+}
+.interval-preparation-note {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 10px;
+  text-align: center;
+}
+@media (max-width: 899px) {
+  .interval-training-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .interval-config {
+    width: 100%;
+  }
+  .interval-execution {
+    min-height: 430px;
+  }
+  .interval-timer {
+    font-size: clamp(76px, 16vw, 130px);
+  }
+}
+@media (max-width: 520px) {
+  .interval-training {
+    gap: 20px;
+    padding: 18px 12px;
+  }
+  .interval-training-header {
+    flex-direction: column;
+  }
+  .interval-training-header h2 {
+    font-size: 21px;
+  }
+  .interval-config,
+  .interval-execution {
+    padding: 18px 14px;
+  }
+  .interval-config {
+    gap: 18px;
+  }
+  .interval-display-top {
+    align-items: flex-start;
+  }
+  .interval-display-top h3 {
+    font-size: 14px;
+  }
+  .interval-phase {
+    font-size: 8px;
+  }
+  .interval-timer {
+    font-size: clamp(64px, 18vw, 94px);
+    letter-spacing: -3px;
+  }
+  .interval-progress-details {
+    font-size: 9px;
+  }
+  .interval-next {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .interval-next strong {
+    text-align: left;
+  }
+  .interval-controls {
+    flex-direction: column;
+  }
+  .interval-button {
+    width: 100%;
+    min-height: 46px;
+  }
+}
+/* Seleção do formato de treino */
+.interval-mode-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.interval-mode-selector button {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.interval-mode-selector button:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+.interval-mode-selector button.active {
+  border-color: var(--color-primary);
+  background: rgba(227, 38, 54, 0.14);
+  color: var(--color-text);
+}
+.interval-mode-selector button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+/* Editor da sequência */
+.interval-sequence-config {
+  min-width: 0;
+}
+.interval-sequence-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 24px 0;
+}
+.interval-sequence-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.interval-sequence-list-heading h4 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+.interval-sequence-list-heading span {
+  color: var(--color-muted);
+  font-size: 0.72rem;
+}
+.interval-sequence-empty {
+  padding: 18px;
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.interval-sequence-exercise {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  background: var(--color-surface);
+}
+.interval-sequence-exercise-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.interval-sequence-number {
+  display: grid;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(227, 38, 54, 0.14);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.interval-sequence-exercise-info strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--color-text);
+  font-size: 0.88rem;
+}
+.interval-sequence-exercise-info p {
+  margin: 5px 0 0;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+.interval-sequence-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.interval-sequence-actions button {
+  min-height: 32px;
+  padding: 0 9px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+  font-size: 0.65rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.interval-sequence-actions button:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+.interval-sequence-actions button.danger {
+  color: #ff8b94;
+}
+.interval-sequence-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+.interval-sequence-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 22px 0;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+.interval-sequence-editor .interval-config-heading h4 {
+  margin: 8px 0 0;
+  color: var(--color-text);
+  font-size: 1rem;
+}
+.interval-sequence-editor .interval-config-field input[type="text"] {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-background);
+  color: var(--color-text);
+  font: inherit;
+}
+.interval-sequence-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.interval-sequence-editor-actions .interval-button {
+  flex: 1 1 160px;
+}
+@media (max-width: 600px) {
+  .interval-mode-selector {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .interval-sequence-exercise {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .interval-sequence-actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .interval-sequence-actions button {
+    flex: 1 1 auto;
+  }
+}
+/* Interval Training - Preset management */
+.interval-presets {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 22px;
+  background: #171719;
+  border: 1px solid #303036;
+  border-radius: 12px;
+}
+.interval-presets-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.interval-presets-heading h3 {
+  margin: 7px 0;
+  color: var(--color-text);
+  font-size: 18px;
+}
+.interval-presets-heading p,
+.interval-preset-info p,
+.interval-preset-editor > p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.interval-presets-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.interval-presets-group > h4 {
+  margin: 0 0 2px;
+  color: var(--color-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.interval-preset-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 15px;
+  background: #101012;
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  transition: border-color 0.2s ease;
+}
+.interval-preset-card.selected {
+  border-color: var(--color-primary);
+}
+.interval-preset-info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 7px;
+}
+.interval-preset-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.interval-preset-title strong {
+  color: var(--color-text);
+  font-size: 13px;
+}
+.interval-preset-title > span {
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.interval-preset-title .native {
+  color: #a1a1aa;
+  background: #29292e;
+}
+.interval-preset-title .custom {
+  color: #fca5a5;
+  background: rgb(227 38 54 / 14%);
+}
+.interval-preset-format {
+  color: var(--color-muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+}
+.interval-preset-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
+  flex-shrink: 0;
+}
+.interval-preset-actions .interval-button,
+.interval-presets-heading > .interval-button,
+.interval-preset-editor-actions .interval-button {
+  min-height: 34px;
+  padding: 8px 11px;
+  font-size: 9px;
+}
+.interval-presets-empty {
+  margin: 0;
+  padding: 18px;
+  color: var(--color-muted);
+  background: #101012;
+  border: 1px dashed var(--color-border);
+  border-radius: 9px;
+  font-size: 12px;
+  text-align: center;
+}
+.interval-preset-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  background: #101012;
+  border: 1px solid var(--color-primary);
+  border-radius: 9px;
+}
+.interval-preset-editor h4 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 14px;
+}
+.interval-preset-editor textarea {
+  width: 100%;
+  min-height: 76px;
+  padding: 11px 12px;
+  color: var(--color-text);
+  background: #171719;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  font: inherit;
+  font-size: 13px;
+  resize: vertical;
+}
+.interval-preset-editor textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+.interval-preset-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.interval-presets-feedback {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 11px;
+}
+@media (max-width: 700px) {
+  .interval-presets-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .interval-preset-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .interval-preset-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 520px) {
+  .interval-presets {
+    padding: 16px;
+  }
+  .interval-preset-actions .interval-button {
+    flex: 1;
+  }
+}
+/* =========================================
+   INTERVAL AUDIO SETTINGS
+========================================= */
+.interval-audio-settings {
+  width: 100%;
+  margin: 0;
+  background: #171719;
+  border: 1px solid #303036;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.interval-audio-settings-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  cursor: pointer;
+  list-style: none;
+}
+.interval-audio-settings-summary::-webkit-details-marker {
+  display: none;
+}
+.interval-audio-settings-summary::marker {
+  content: '';
+}
+.interval-audio-settings-summary > span:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.interval-audio-settings-summary strong {
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 800;
+}
+.interval-audio-settings-summary small {
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.interval-audio-settings-summary::after {
+  content: '+';
+  flex-shrink: 0;
+  color: var(--color-muted);
+  font-size: 22px;
+  font-weight: 600;
+}
+.interval-audio-settings[open]
+.interval-audio-settings-summary::after {
+  content: '−';
+}
+.interval-audio-settings-indicator {
+  flex-shrink: 0;
+  color: var(--color-primary);
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.interval-audio-settings-content {
+  padding: 0 22px 20px;
+}
+.interval-audio-settings-heading {
+  margin-bottom: 16px;
+}
+.interval-audio-settings-heading p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.interval-audio-settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.interval-audio-setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+  padding: 13px 14px;
+  background: #101012;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+.interval-audio-setting-control {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  gap: 12px;
+  cursor: pointer;
+}
+.interval-audio-setting-control input {
+  flex: 0 0 17px;
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+.interval-audio-setting-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 4px;
+}
+.interval-audio-setting-text strong {
+  color: var(--color-text);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+.interval-audio-setting-text small {
+  color: var(--color-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.interval-audio-test-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  min-height: 34px;
+  padding: 0 12px;
+  color: var(--color-text);
+  background: #29292e;
+  border: 1px solid #414149;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+.interval-audio-test-button:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.interval-audio-test-button:active {
+  transform: scale(0.97);
+}
+.interval-audio-test-button:focus-visible,
+.interval-audio-settings-summary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+@media (max-width: 520px) {
+  .interval-audio-settings-summary {
+    padding: 15px;
+    gap: 10px;
+  }
+  .interval-audio-settings-content {
+    padding: 0 12px 14px;
+  }
+  .interval-audio-setting {
+    padding: 11px 9px;
+    gap: 8px;
+  }
+  .interval-audio-setting-control {
+    gap: 8px;
+  }
+  .interval-audio-setting-text strong {
+    font-size: 11px;
+  }
+  .interval-audio-setting-text small {
+    font-size: 10px;
+  }
+  .interval-audio-test-button {
+    min-width: 60px;
+    min-height: 32px;
+    padding: 0 8px;
+    font-size: 8px;
+  }
+}
+.interval-audio-settings-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 32px auto 0;
+}
+@media (max-width: 520px) {
+  .interval-audio-settings-container {
+    margin-top: 24px;
+  }
+}
+/* =========================================
+   MODO TV — INTERVAL TRAINING
+========================================= */
+.interval-training.tv-mode {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  gap: clamp(20px, 3vh, 40px);
+  padding: clamp(24px, 4vw, 64px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  color: #fff;
+  background: #080808;
+  border: 0;
+  border-radius: 0;
+}
+/* Botão para entrar e sair do modo TV */
+.interval-tv-mode-toggle {
+  position: absolute;
+  top: 88px;
+  right: 28px;
+  z-index: 10;
+  min-height: 42px;
+  padding: 0 16px;
+  color: #fff;
+  background: #242428;
+  border: 1px solid #414149;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+.interval-tv-mode-toggle:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.interval-tv-mode-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+/* Oculta configurações e elementos administrativos */
+.interval-training.tv-mode .interval-training-header,
+.interval-training.tv-mode .interval-mode-selector,
+.interval-training.tv-mode .interval-presets,
+.interval-training.tv-mode .interval-config,
+.interval-training.tv-mode .interval-audio-settings-container {
+  display: none !important;
+}
+/* Mantém apenas a área de execução */
+.interval-training.tv-mode .interval-training-layout {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1500px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+.interval-training.tv-mode .interval-execution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  padding: clamp(20px, 3vw, 48px);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  gap: clamp(20px, 3vh, 42px);
+}
+/* Display do treino */
+.interval-training.tv-mode .interval-display {
+  width: 100%;
+  max-width: 1300px;
+  gap: clamp(20px, 3vh, 42px);
+}
+.interval-training.tv-mode .interval-display-top {
+  justify-content: center;
+  gap: 24px;
+}
+.interval-training.tv-mode .interval-display-top h3 {
+  font-size: clamp(24px, 3vw, 42px);
+  text-align: center;
+}
+.interval-training.tv-mode .interval-phase {
+  padding: 12px 20px;
+  font-size: clamp(12px, 1.2vw, 16px);
+}
+/* Cronômetro em destaque */
+.interval-training.tv-mode .interval-timer {
+  width: 100%;
+  font-size: clamp(100px, min(25vw, 35vh), 320px);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+/* Status */
+.interval-training.tv-mode .interval-status {
+  font-size: clamp(13px, 1.3vw, 18px);
+  letter-spacing: 2px;
+}
+.interval-training.tv-mode .interval-status .status-dot {
+  width: 12px;
+  height: 12px;
+}
+/* Progresso */
+.interval-training.tv-mode .interval-progress {
+  width: 100%;
+  max-width: 900px;
+}
+.interval-training.tv-mode .interval-progress-heading {
+  font-size: clamp(12px, 1vw, 15px);
+}
+.interval-training.tv-mode .interval-progress-heading strong {
+  font-size: clamp(16px, 1.5vw, 22px);
+}
+.interval-training.tv-mode .interval-progress-track {
+  height: 12px;
+}
+.interval-training.tv-mode .interval-progress-details {
+  font-size: clamp(12px, 1vw, 15px);
+}
+/* Próxima atividade */
+.interval-training.tv-mode .interval-next {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px 24px;
+}
+.interval-training.tv-mode .interval-next span {
+  font-size: clamp(11px, 1vw, 14px);
+}
+.interval-training.tv-mode .interval-next strong {
+  font-size: clamp(16px, 1.5vw, 22px);
+}
+/* Controles */
+.interval-training.tv-mode .interval-controls {
+  max-width: 900px;
+  gap: 16px;
+}
+.interval-training.tv-mode .interval-button {
+  min-width: 180px;
+  min-height: 60px;
+  padding: 16px 24px;
+  font-size: clamp(12px, 1vw, 15px);
+}
+/* Nota de preparação não é necessária no modo TV */
+.interval-training.tv-mode .interval-preparation-note {
+  display: none;
+}
+/* Tablet */
+@media (max-width: 899px) {
+  .interval-training.tv-mode {
+    padding: 70px 24px 24px;
+    gap: 20px;
+  }
+  .interval-training.tv-mode .interval-execution {
+    padding: 16px;
+  }
+  .interval-training.tv-mode .interval-timer {
+    font-size: clamp(100px, 23vw, 220px);
+  }
+}
+/* Mobile */
+@media (max-width: 520px) {
+  .interval-training.tv-mode {
+    justify-content: center;
+    padding: 64px 14px 20px;
+    gap: 16px;
+  }
+  .interval-training.tv-mode .interval-tv-mode-toggle {
+    top: 12px;
+    right: 12px;
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 9px;
+  }
+  .interval-training.tv-mode .interval-execution {
+    padding: 8px;
+    gap: 20px;
+  }
+  .interval-training.tv-mode .interval-display {
+    gap: 20px;
+  }
+  .interval-training.tv-mode .interval-display-top {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .interval-training.tv-mode .interval-display-top h3 {
+    font-size: clamp(20px, 6vw, 30px);
+  }
+  .interval-training.tv-mode .interval-timer {
+    font-size: clamp(82px, 21vw, 140px);
+    letter-spacing: -3px;
+  }
+  .interval-training.tv-mode .interval-next {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px;
+  }
+  .interval-training.tv-mode .interval-next strong {
+    text-align: left;
+  }
+  .interval-training.tv-mode .interval-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .interval-training.tv-mode .interval-button {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+/* Ajustes finais de espaçamento — cabeçalho e visualização mobile */
+.interval-training {
+  margin-top: 16px;
+}
+
+@media (max-width: 520px) {
+  .interval-tv-mode-toggle {
+    top: 118px;
+  }
+}

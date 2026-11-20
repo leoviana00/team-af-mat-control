@@ -1,6 +1,8 @@
 ﻿
 import { useState } from 'react'
+
 import { TrainingTimer } from '../features/training-timer/components/training-timer'
+import { IntervalTraining } from '../features/interval-training/components/interval-training'
 
 const modules = [
   {
@@ -22,7 +24,7 @@ const modules = [
     number: '03',
     title: 'Interval Training',
     description: 'Treinos intervalados com ciclos de atividade e descanso.',
-    status: 'Em breve',
+    status: 'Disponível',
   },
   {
     id: 'class',
@@ -39,6 +41,9 @@ function App() {
   const selectedModule = modules.find(
     (module) => module.id === activeModule,
   )
+
+  const isOperational =
+    activeModule === 'timer' || activeModule === 'interval'
 
   return (
     <div className="app-shell">
@@ -118,12 +123,14 @@ function App() {
               <h2>{selectedModule?.title}</h2>
             </div>
             <span className="workspace-badge">
-              {activeModule === 'timer' ? 'OPERACIONAL' : 'PREPARAÇÃO'}
+              {isOperational ? 'OPERACIONAL' : 'PREPARAÇÃO'}
             </span>
           </div>
 
           {activeModule === 'timer' ? (
             <TrainingTimer />
+          ) : activeModule === 'interval' ? (
+            <IntervalTraining />
           ) : (
             <div className="workspace-placeholder">
               <div className="placeholder-icon">AF</div>

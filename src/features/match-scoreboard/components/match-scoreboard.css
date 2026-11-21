@@ -1,0 +1,808 @@
+.match-scoreboard {
+margin-top: 20px;
+padding: 24px;
+border: 1px solid var(--color-border);
+border-radius: var(--radius-card);
+background: var(--color-surface);
+text-align: left;
+}
+.match-scoreboard-toolbar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 16px;
+margin-bottom: 22px;
+}
+.match-scoreboard-toolbar h3 {
+margin: 7px 0 0;
+font-size: 20px;
+}
+.match-scoreboard-eyebrow,
+.match-timer-label {
+color: var(--color-primary);
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 1.8px;
+}
+.match-status {
+padding: 6px 10px;
+border: 1px solid var(--color-border);
+border-radius: 6px;
+color: var(--color-muted);
+font-size: 9px;
+font-weight: 800;
+letter-spacing: 1px;
+}
+.match-status-running {
+color: #42c77a;
+border-color: rgba(66, 199, 122, 0.35);
+}
+.match-status-finished {
+color: var(--color-primary);
+border-color: var(--color-primary);
+}
+.match-scoreboard-config {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 18px;
+color: var(--color-muted);
+font-size: 12px;
+}
+.match-duration-control {
+display: flex;
+align-items: center;
+gap: 7px;
+}
+.match-duration-control input {
+width: 64px;
+padding: 7px 8px;
+border: 1px solid var(--color-border);
+border-radius: 6px;
+outline: none;
+background: #0d0d0f;
+color: var(--color-text);
+text-align: center;
+font: inherit;
+}
+.match-duration-control input:focus {
+border-color: var(--color-primary);
+}
+.match-duration-control input:disabled {
+opacity: 0.55;
+}
+.match-scoreboard-board {
+display: grid;
+grid-template-columns: minmax(0, 1fr) 190px minmax(0, 1fr);
+gap: 14px;
+align-items: stretch;
+}
+.match-side {
+min-width: 0;
+padding: 20px;
+border: 1px solid var(--color-border);
+border-radius: 10px;
+background: #101012;
+}
+.match-side-blue {
+border-top: 3px solid var(--color-blue);
+}
+.match-side-white {
+border-top: 3px solid #e5e7eb;
+}
+.match-side-heading {
+display: flex;
+align-items: center;
+gap: 9px;
+}
+.match-side-heading h4 {
+margin: 0;
+font-size: 12px;
+letter-spacing: 1.5px;
+}
+.match-side-indicator {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: var(--color-blue);
+}
+.match-side-white .match-side-indicator {
+background: #e5e7eb;
+}
+.match-points {
+margin: 14px 0 18px;
+color: var(--color-text);
+font-size: clamp(48px, 6vw, 76px);
+font-weight: 900;
+line-height: 1;
+letter-spacing: -3px;
+font-variant-numeric: tabular-nums;
+}
+.match-score-details {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 8px;
+margin-bottom: 18px;
+}
+.match-score-details > div {
+display: flex;
+flex-direction: column;
+gap: 4px;
+}
+.match-score-details span {
+color: var(--color-muted);
+font-size: 10px;
+}
+.match-score-details strong {
+font-size: 18px;
+font-variant-numeric: tabular-nums;
+}
+.match-score-actions {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 7px;
+}
+.match-score-actions button,
+.match-timer-controls button,
+.match-end-option button {
+min-height: 36px;
+padding: 7px 10px;
+border: 1px solid var(--color-border);
+border-radius: 6px;
+background: #1a1a1e;
+color: var(--color-text);
+font-size: 11px;
+font-weight: 700;
+cursor: pointer;
+transition: background 150ms ease, border-color 150ms ease;
+}
+.match-score-actions button:hover,
+.match-end-option button:hover {
+border-color: #55555d;
+background: var(--color-surface-hover);
+}
+.match-score-actions button:disabled {
+opacity: 0.4;
+cursor: not-allowed;
+}
+.match-score-actions .match-action-secondary {
+color: #fbbf24;
+}
+.match-score-actions .match-action-penalty {
+color: #fb7185;
+}
+.match-scoreboard-center {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 18px 10px;
+border: 1px solid var(--color-border);
+border-radius: 10px;
+background: #0d0d0f;
+text-align: center;
+}
+.match-timer {
+margin: 9px 0 4px;
+color: var(--color-text);
+font-size: clamp(30px, 3.5vw, 42px);
+font-weight: 800;
+line-height: 1.1;
+letter-spacing: -1.5px;
+font-variant-numeric: tabular-nums;
+}
+.match-timer-elapsed {
+color: var(--color-muted);
+font-size: 9px;
+font-variant-numeric: tabular-nums;
+}
+.match-timer-controls {
+display: flex;
+flex-direction: column;
+gap: 8px;
+width: 100%;
+margin-top: 20px;
+}
+.match-timer-controls button {
+width: 100%;
+}
+.match-timer-controls .match-button-primary {
+border-color: var(--color-primary);
+background: var(--color-primary);
+color: white;
+}
+.match-timer-controls .match-button-primary:hover {
+background: var(--color-primary-hover);
+}
+.match-timer-controls .match-button-reset {
+color: var(--color-muted);
+background: transparent;
+}
+.match-result {
+margin-top: 18px;
+padding: 18px;
+border: 1px solid var(--color-primary);
+border-radius: 8px;
+background: rgba(227, 38, 54, 0.08);
+text-align: center;
+}
+.match-result span {
+display: block;
+color: var(--color-primary);
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 1.5px;
+}
+.match-result strong {
+display: block;
+margin: 7px 0 4px;
+font-size: 22px;
+}
+.match-result p {
+color: var(--color-muted);
+font-size: 11px;
+}
+.match-end-controls {
+margin-top: 20px;
+padding-top: 18px;
+border-top: 1px solid var(--color-border);
+}
+.match-end-controls > span {
+color: var(--color-muted);
+font-size: 11px;
+font-weight: 700;
+}
+.match-end-options {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 10px;
+margin-top: 12px;
+}
+.match-end-option {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 6px;
+padding: 10px;
+border: 1px solid var(--color-border);
+border-radius: 8px;
+}
+.match-end-option > span {
+flex: 1 0 100%;
+margin-bottom: 3px;
+color: var(--color-muted);
+font-size: 10px;
+}
+.match-end-option button {
+min-height: 30px;
+flex: 1;
+padding: 5px 8px;
+font-size: 10px;
+}
+@media (max-width: 850px) {
+.match-scoreboard-board {
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.match-scoreboard-center {
+grid-column: 1 / -1;
+grid-row: 1;
+min-height: 190px;
+}
+.match-side {
+padding: 16px;
+}
+.match-end-options {
+grid-template-columns: 1fr;
+}
+}
+@media (max-width: 520px) {
+.match-scoreboard {
+padding: 14px;
+}
+.match-scoreboard-board {
+gap: 8px;
+}
+.match-side {
+padding: 12px;
+}
+.match-side-heading h4 {
+font-size: 10px;
+}
+.match-points {
+font-size: 48px;
+}
+.match-score-details {
+grid-template-columns: 1fr;
+gap: 10px;
+}
+.match-score-actions {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.match-score-actions button {
+font-size: 10px;
+}
+}
+/* Confirmação de encerramento da luta */
+.match-scoreboard .match-end-confirmation {
+position: fixed !important;
+inset: 0 !important;
+z-index: 9999 !important;
+display: grid !important;
+place-items: center !important;
+padding: 24px !important;
+}
+.match-scoreboard .match-end-confirmation-backdrop {
+position: absolute !important;
+inset: 0 !important;
+background: rgba(0, 0, 0, 0.82) !important;
+backdrop-filter: blur(4px);
+}
+.match-scoreboard .match-end-confirmation-dialog {
+position: relative !important;
+z-index: 1 !important;
+width: min(100%, 440px) !important;
+padding: 30px !important;
+border: 1px solid var(--color-border) !important;
+border-top: 3px solid var(--color-primary) !important;
+border-radius: var(--radius-card) !important;
+background: var(--color-surface) !important;
+box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+text-align: left !important;
+}
+.match-scoreboard .match-end-confirmation-dialog h4 {
+margin: 18px 0 10px !important;
+color: var(--color-text) !important;
+font-size: 24px !important;
+font-weight: 800 !important;
+}
+.match-scoreboard .match-end-confirmation-dialog p {
+margin: 0 !important;
+color: var(--color-muted) !important;
+font-size: 14px !important;
+line-height: 1.6 !important;
+}
+.match-scoreboard .match-end-confirmation-actions {
+display: flex !important;
+justify-content: flex-end !important;
+gap: 12px !important;
+margin-top: 28px !important;
+}
+/* Sobrescreve o estilo padrão dos botões */
+.match-scoreboard .match-end-confirmation-actions button {
+min-height: 44px !important;
+padding: 0 18px !important;
+border: 1px solid var(--color-border) !important;
+border-radius: 8px !important;
+font-family: inherit !important;
+font-size: 12px !important;
+font-weight: 800 !important;
+cursor: pointer !important;
+opacity: 1 !important;
+}
+.match-scoreboard .match-end-confirmation-actions .match-button-secondary {
+background: var(--color-surface-hover) !important;
+color: var(--color-text) !important;
+}
+.match-scoreboard .match-end-confirmation-actions .match-button-secondary:hover {
+border-color: #55555d !important;
+background: #252529 !important;
+}
+.match-scoreboard .match-end-confirmation-actions .match-button-primary {
+border-color: var(--color-primary) !important;
+background: var(--color-primary) !important;
+color: #ffffff !important;
+}
+.match-scoreboard .match-end-confirmation-actions .match-button-primary:hover {
+border-color: var(--color-primary-hover) !important;
+background: var(--color-primary-hover) !important;
+}
+@media (max-width: 520px) {
+.match-scoreboard .match-end-confirmation {
+padding: 16px !important;
+}
+.match-scoreboard .match-end-confirmation-dialog {
+padding: 24px 20px !important;
+}
+.match-scoreboard .match-end-confirmation-actions {
+flex-direction: column-reverse !important;
+}
+.match-scoreboard .match-end-confirmation-actions button {
+width: 100% !important;
+}
+}
+
+
+/* Modo TV — exibição ampliada do placar */
+.match-scoreboard.match-scoreboard-tv {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  margin: 0;
+  padding: clamp(20px, 2.5vw, 48px);
+  overflow: auto;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  background: var(--color-background);
+}
+
+.match-scoreboard-tv .match-scoreboard-toolbar {
+  margin-bottom: clamp(20px, 3vh, 36px);
+}
+
+.match-scoreboard-tv .match-scoreboard-toolbar h3 {
+  font-size: clamp(24px, 2.2vw, 36px);
+}
+
+.match-tv-toggle {
+  min-height: 40px;
+  padding: 10px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.match-tv-toggle:hover {
+  border-color: var(--color-primary);
+}
+
+.match-scoreboard-tv .match-scoreboard-config {
+  font-size: clamp(13px, 1.1vw, 18px);
+  margin-bottom: clamp(16px, 2vh, 28px);
+}
+
+.match-scoreboard-tv .match-scoreboard-board {
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 18vw) minmax(0, 1fr);
+  gap: clamp(16px, 2vw, 32px);
+  min-height: min(62vh, 720px);
+}
+
+.match-scoreboard-tv .match-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(24px, 3vw, 52px);
+}
+
+.match-scoreboard-tv .match-side-heading h4 {
+  font-size: clamp(16px, 1.5vw, 26px);
+}
+
+.match-scoreboard-tv .match-side-indicator {
+  width: 12px;
+  height: 12px;
+}
+
+.match-scoreboard-tv .match-points {
+  margin: clamp(24px, 4vh, 48px) 0;
+  font-size: clamp(88px, 12vw, 190px);
+  letter-spacing: -0.04em;
+}
+
+.match-scoreboard-tv .match-score-details {
+  gap: clamp(16px, 2vw, 32px);
+  margin-bottom: clamp(24px, 3vh, 40px);
+}
+
+.match-scoreboard-tv .match-score-details span {
+  font-size: clamp(13px, 1.2vw, 20px);
+}
+
+.match-scoreboard-tv .match-score-details strong {
+  font-size: clamp(24px, 2.5vw, 40px);
+}
+
+.match-scoreboard-tv .match-score-actions {
+  gap: clamp(10px, 1vw, 16px);
+}
+
+.match-scoreboard-tv .match-score-actions button {
+  min-height: clamp(48px, 5vh, 72px);
+  font-size: clamp(14px, 1.3vw, 22px);
+}
+
+.match-scoreboard-tv .match-scoreboard-center {
+  padding: clamp(24px, 2vw, 40px);
+}
+
+.match-scoreboard-tv .match-timer-label {
+  font-size: clamp(13px, 1.2vw, 20px);
+}
+
+.match-scoreboard-tv .match-timer {
+  font-size: clamp(52px, 5vw, 84px);
+}
+
+.match-scoreboard-tv .match-timer-elapsed {
+  font-size: clamp(12px, 1vw, 16px);
+}
+
+.match-scoreboard-tv .match-timer-controls {
+  gap: 12px;
+  margin-top: clamp(24px, 3vh, 40px);
+}
+
+.match-scoreboard-tv .match-timer-controls button {
+  min-height: clamp(48px, 5vh, 72px);
+  font-size: clamp(14px, 1.2vw, 20px);
+}
+
+.match-scoreboard-tv .match-end-controls > span {
+  font-size: clamp(13px, 1.1vw, 18px);
+}
+
+.match-scoreboard-tv .match-end-option > span {
+  font-size: clamp(12px, 1vw, 16px);
+}
+
+.match-scoreboard-tv .match-end-option button {
+  min-height: 42px;
+  font-size: clamp(12px, 1vw, 16px);
+}
+
+/* TV em telas menores: mantém as equipes lado a lado e o cronômetro acima */
+@media (max-width: 850px) {
+  .match-scoreboard.match-scoreboard-tv {
+    padding: 16px;
+  }
+
+  .match-scoreboard-tv .match-scoreboard-board {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+    min-height: auto;
+  }
+
+  .match-scoreboard-tv .match-scoreboard-center {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-height: 220px;
+  }
+
+  .match-scoreboard-tv .match-side {
+    padding: 16px;
+  }
+
+  .match-scoreboard-tv .match-points {
+    font-size: clamp(64px, 12vw, 112px);
+    margin: 20px 0;
+  }
+
+  .match-scoreboard-tv .match-score-actions button {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 520px) {
+  .match-scoreboard.match-scoreboard-tv {
+    padding: 10px;
+  }
+
+  .match-scoreboard-tv .match-scoreboard-toolbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .match-scoreboard-tv .match-scoreboard-toolbar h3 {
+    font-size: 20px;
+  }
+
+  .match-scoreboard-tv .match-side {
+    padding: 10px;
+  }
+
+  .match-scoreboard-tv .match-side-heading h4 {
+    font-size: 10px;
+  }
+
+  .match-scoreboard-tv .match-points {
+    font-size: 56px;
+    letter-spacing: -2px;
+  }
+
+  .match-scoreboard-tv .match-score-details {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .match-scoreboard-tv .match-score-details strong {
+    font-size: 20px;
+  }
+
+  .match-scoreboard-tv .match-score-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .match-scoreboard-tv .match-score-actions button {
+    min-height: 40px;
+    padding: 6px;
+    font-size: 10px;
+  }
+}
+
+/* Ajuste vertical do modo TV */
+.match-scoreboard.match-scoreboard-tv {
+  padding: clamp(12px, 1.5vw, 28px);
+}
+
+.match-scoreboard-tv .match-scoreboard-toolbar {
+  margin-bottom: 14px;
+}
+
+.match-scoreboard-tv .match-scoreboard-config {
+  margin-bottom: 14px;
+}
+
+.match-scoreboard-tv .match-scoreboard-board {
+  min-height: 0;
+  gap: 16px;
+}
+
+.match-scoreboard-tv .match-side {
+  padding: clamp(16px, 2vw, 30px);
+}
+
+.match-scoreboard-tv .match-points {
+  margin: 20px 0;
+  font-size: clamp(72px, 8vw, 130px);
+}
+
+.match-scoreboard-tv .match-score-details {
+  margin-bottom: 18px;
+}
+
+.match-scoreboard-tv .match-score-actions {
+  gap: 8px;
+}
+
+.match-scoreboard-tv .match-score-actions button {
+  min-height: 46px;
+  padding: 6px;
+  font-size: clamp(13px, 1.1vw, 18px);
+}
+
+.match-scoreboard-tv .match-scoreboard-center {
+  padding: 20px 14px;
+}
+
+.match-scoreboard-tv .match-timer {
+  font-size: clamp(48px, 4.5vw, 72px);
+}
+
+.match-scoreboard-tv .match-timer-controls {
+  margin-top: 18px;
+}
+
+.match-scoreboard-tv .match-timer-controls button {
+  min-height: 46px;
+}
+
+/* Modo TV — compactação vertical final */
+.match-scoreboard-tv .match-scoreboard-toolbar {
+  margin-bottom: 10px;
+}
+
+.match-scoreboard-tv .match-scoreboard-config {
+  margin-bottom: 10px;
+}
+
+.match-scoreboard-tv .match-scoreboard-board {
+  gap: 12px;
+}
+
+.match-scoreboard-tv .match-side {
+  padding: 18px;
+}
+
+.match-scoreboard-tv .match-points {
+  margin: 14px 0;
+  font-size: clamp(72px, 7vw, 112px);
+}
+
+.match-scoreboard-tv .match-score-details {
+  margin-bottom: 14px;
+}
+
+.match-scoreboard-tv .match-score-actions {
+  gap: 7px;
+}
+
+.match-scoreboard-tv .match-score-actions button {
+  min-height: 42px;
+}
+
+.match-scoreboard-tv .match-scoreboard-center {
+  padding: 16px 12px;
+}
+
+.match-scoreboard-tv .match-timer-controls {
+  margin-top: 14px;
+}
+
+.match-scoreboard-tv .match-timer-controls button {
+  min-height: 42px;
+}
+
+.match-scoreboard-tv .match-end-controls {
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.match-scoreboard-tv .match-end-options {
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.match-scoreboard-tv .match-end-option {
+  padding: 8px;
+}
+
+/* Modo TV — respiro inferior e ajuste final de altura */
+.match-scoreboard.match-scoreboard-tv {
+  padding-bottom: 24px;
+}
+
+.match-scoreboard-tv .match-scoreboard-toolbar {
+  margin-bottom: 8px;
+}
+
+.match-scoreboard-tv .match-scoreboard-config {
+  margin-bottom: 8px;
+}
+
+.match-scoreboard-tv .match-scoreboard-board {
+  gap: 12px;
+}
+
+.match-scoreboard-tv .match-side {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.match-scoreboard-tv .match-points {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.match-scoreboard-tv .match-score-details {
+  margin-bottom: 12px;
+}
+
+.match-scoreboard-tv .match-score-actions button {
+  min-height: 40px;
+}
+
+.match-scoreboard-tv .match-scoreboard-center {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.match-scoreboard-tv .match-timer-controls {
+  margin-top: 12px;
+}
+
+.match-scoreboard-tv .match-timer-controls button {
+  min-height: 40px;
+}
+
+.match-scoreboard-tv .match-end-controls {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.match-scoreboard-tv .match-end-options {
+  margin-top: 8px;
+  gap: 8px;
+}
+
+.match-scoreboard-tv .match-end-option {
+  padding: 7px;
+}

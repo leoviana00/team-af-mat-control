@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 import { TrainingTimer } from '../features/training-timer/components/training-timer'
 import { IntervalTraining } from '../features/interval-training/components/interval-training'
+import { MatchScoreboard } from '../features/match-scoreboard/components/match-scoreboard'
 
 const modules = [
   {
@@ -17,7 +18,7 @@ const modules = [
     number: '02',
     title: 'Match Scoreboard',
     description: 'Placar de lutas com pontos, vantagens e punições.',
-    status: 'Em breve',
+    status: 'Disponível',
   },
   {
     id: 'interval',
@@ -43,7 +44,9 @@ function App() {
   )
 
   const isOperational =
-    activeModule === 'timer' || activeModule === 'interval'
+    activeModule === 'timer' ||
+    activeModule === 'scoreboard' ||
+    activeModule === 'interval'
 
   return (
     <div className="app-shell">
@@ -129,6 +132,8 @@ function App() {
 
           {activeModule === 'timer' ? (
             <TrainingTimer />
+          ) : activeModule === 'scoreboard' ? (
+            <MatchScoreboard />
           ) : activeModule === 'interval' ? (
             <IntervalTraining />
           ) : (

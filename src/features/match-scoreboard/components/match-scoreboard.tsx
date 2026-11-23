@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useMatchScoreboard } from '../hooks/use-match-scoreboard'
 import type {
@@ -45,7 +45,75 @@ export function MatchScoreboard() {
 
   const [durationMinutes, setDurationMinutes] = useState('5')
 
+  const timerContainerRef = useRef<HTMLElement>(null)
   const [isTvMode, setIsTvMode] = useState(false)
+
+  useEffect(() => {
+    function handleFullscreenChange() {
+      const isNativeFullscreen =
+        document.fullscreenElement === timerContainerRef.current
+
+      if (isNativeFullscreen) {
+        setIsTvMode(true)
+        return
+      }
+
+      // Se outra área entrar em fullscreen, este módulo deixa o modo TV.
+      setIsTvMode(false)
+    }
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange)
+
+    return () => {
+      document.removeEventListener(
+        'fullscreenchange',
+        handleFullscreenChange,
+      )
+    }
+  }, [])
+
+  async function handleToggleTvMode() {
+    const container = timerContainerRef.current
+
+    if (!container) {
+      return
+    }
+
+    if (isTvMode) {
+      setIsTvMode(false)
+
+      if (
+        document.fullscreenElement === container &&
+        typeof document.exitFullscreen === 'function'
+      ) {
+        try {
+          await document.exitFullscreen()
+        } catch (error) {
+          console.warn(
+            'Não foi possível sair da tela cheia nativa:',
+            error,
+          )
+        }
+      }
+
+      return
+    }
+
+    setIsTvMode(true)
+
+    if (typeof container.requestFullscreen !== 'function') {
+      return
+    }
+
+    try {
+      await container.requestFullscreen()
+    } catch (error) {
+      console.warn(
+        'Tela cheia nativa indisponível. Mantendo modo TV visual:',
+        error,
+      )
+    }
+  }
 
   const [pendingEnd, setPendingEnd] = useState<{
     reason: Exclude<MatchEndReason, 'time'>
@@ -93,6 +161,7 @@ export function MatchScoreboard() {
 
   return (
     <section
+      ref={timerContainerRef}
       className={`match-scoreboard${isTvMode ? ' match-scoreboard-tv' : ''}`}
     >
       <div className="match-scoreboard-toolbar">
@@ -106,7 +175,8 @@ export function MatchScoreboard() {
         <button
           type="button"
           className="match-tv-toggle"
-          onClick={() => setIsTvMode((current) => !current)}
+          aria-pressed={isTvMode}
+          onClick={handleToggleTvMode}
         >
           {isTvMode ? 'Sair do modo TV' : 'Modo TV'}
         </button>

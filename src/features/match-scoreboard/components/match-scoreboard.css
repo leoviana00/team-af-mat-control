@@ -1585,17 +1585,26 @@ width: 100% !important;
   }
 }
 
-/* Modo TV — celular em landscape */
+
+
+/* Modo TV — celular landscape */
 @media (max-width: 950px) and (max-height: 520px) and (orientation: landscape) {
   .match-scoreboard.match-scoreboard-tv {
-    padding: 48px 8px 8px;
-    gap: 8px;
+    box-sizing: border-box;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    padding: 42px 8px 8px;
+    gap: 6px;
     justify-content: flex-start;
+    overflow: hidden;
   }
 
+  /* Oculta configurações e remove espaço do toolbar */
   .match-scoreboard-tv .match-scoreboard-toolbar {
     flex: 0 0 0;
     min-height: 0;
+    height: 0;
     margin: 0;
     padding: 0;
   }
@@ -1604,51 +1613,67 @@ width: 100% !important;
     display: none;
   }
 
+  /* Grid principal: timer em cima, equipes embaixo */
   .match-scoreboard-tv .match-scoreboard-board {
-    flex: 1 1 auto;
+    display: grid;
+    box-sizing: border-box;
+    width: 100%;
+    flex: 1 1 0;
+    min-width: 0;
     min-height: 0;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: auto minmax(0, 1fr);
-    gap: 8px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: 112px minmax(0, 1fr);
+    gap: 6px;
+    overflow: hidden;
   }
 
-  /* Cronômetro ocupa toda a primeira linha */
+  /* Cronômetro */
   .match-scoreboard-tv .match-scoreboard-center {
     grid-column: 1 / -1;
     grid-row: 1;
+    box-sizing: border-box;
+    min-width: 0;
     min-height: 0;
-    padding: 8px 10px;
+    padding: 6px 10px;
+    gap: 4px;
+    overflow: hidden;
   }
 
   .match-scoreboard-tv .match-timer-label {
     font-size: 10px;
+    line-height: 1.1;
+    margin: 0;
   }
 
   .match-scoreboard-tv .match-timer {
-    margin: 4px 0 2px;
-    font-size: clamp(32px, 8vh, 44px);
+    margin: 2px 0;
+    font-size: clamp(30px, 7vh, 40px);
     line-height: 1;
   }
 
   .match-scoreboard-tv .match-timer-elapsed {
     font-size: 9px;
+    line-height: 1;
+    margin: 0;
   }
 
-  /* Pausar e reiniciar lado a lado */
   .match-scoreboard-tv .match-timer-controls {
+    display: flex;
     flex-direction: row;
     gap: 6px;
-    margin-top: 6px;
+    margin-top: 4px;
   }
 
   .match-scoreboard-tv .match-timer-controls button {
-    flex: 1;
-    min-height: 32px;
-    padding: 4px 8px;
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 28px;
+    padding: 3px 6px;
     font-size: 11px;
+    line-height: 1.1;
   }
 
-  /* Azul e Branco dividem igualmente a segunda linha */
+  /* Cards Azul e Branco */
   .match-scoreboard-tv .match-side-blue {
     grid-column: 1;
     grid-row: 2;
@@ -1660,47 +1685,71 @@ width: 100% !important;
   }
 
   .match-scoreboard-tv .match-side {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
     min-height: 0;
     padding: 8px;
+    gap: 4px;
+    overflow: hidden;
+  }
+
+  .match-scoreboard-tv .match-side-heading {
+    min-width: 0;
+    margin: 0;
+    gap: 5px;
   }
 
   .match-scoreboard-tv .match-side-heading h4 {
+    min-width: 0;
+    margin: 0;
     font-size: 11px;
+    line-height: 1.2;
   }
 
   .match-scoreboard-tv .match-side-indicator {
+    flex: 0 0 8px;
     width: 8px;
     height: 8px;
   }
 
   .match-scoreboard-tv .match-points {
-    margin: 6px 0;
-    font-size: clamp(44px, 12vh, 64px);
+    margin: 4px 0;
+    font-size: clamp(38px, 10vh, 54px);
     line-height: 0.9;
   }
 
   .match-scoreboard-tv .match-score-details {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 4px;
-    margin-bottom: 6px;
+    margin: 2px 0 6px;
   }
 
   .match-scoreboard-tv .match-score-details span {
-    font-size: 10px;
+    font-size: 9px;
+    line-height: 1.1;
   }
 
   .match-scoreboard-tv .match-score-details strong {
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 1.1;
   }
 
+  /* Botões de pontuação */
   .match-scoreboard-tv .match-score-actions {
+    display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 4px;
+    min-width: 0;
   }
 
   .match-scoreboard-tv .match-score-actions button {
-    min-height: 32px;
-    padding: 4px 2px;
+    box-sizing: border-box;
+    min-width: 0;
+    min-height: 30px;
+    padding: 3px 2px;
     font-size: 10px;
+    line-height: 1.1;
   }
 }
